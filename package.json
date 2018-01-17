@@ -1,0 +1,31 @@
+{
+  "name": "test-tp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "balanced-match": "^1.0.0",
+    "brace-expansion": "^1.1.8",
+    "concat-map": "^0.0.1",
+    "exit": "^0.1.2",
+    "fs.realpath": "^1.0.0",
+    "glob": "^7.1.2",
+    "inflight": "^1.0.6",
+    "inherits": "^2.0.3",
+    "jasmine": "^2.8.0",
+    "jasmine-core": "^2.8.0",
+    "minimatch": "^3.0.4",
+    "once": "^1.4.0",
+    "path-is-absolute": "^1.0.1",
+    "wrappy": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
