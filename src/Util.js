@@ -8,7 +8,7 @@ Util = {};
 Util.factorial = function(n) {
 };
 
-/**
+/**WXW   
  * Calcule la disposition ordonnée de r éléments dans un ensemble de n elements.
  * Formule: Util.arrangement(n, r) = n! / (n - r)!
  * @param {number} n
