@@ -66,6 +66,26 @@ Util.combination = function(n, r) {
  */
 Util.isPrime = function(n) {
 
+	if( typeof n !== "number" )
+    {
+        throw 'Unable to compute arrangement of non integer values (n)'
+    }
+
+    if( n <= 0 )
+    {
+        throw 'Unable to compute factorial for n < 0'
+    }
+
+    if( n === 1 )
+        return false;
+
+    for(var i = 2; i < n; i++){
+        if( n % i === 0 ){
+        	return false;
+        }
+    }
+
+    return n !== 1
 };
 
 
