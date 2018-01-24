@@ -6,6 +6,23 @@ Util = {};
  * @returns {number}
  */
 Util.factorial = function(n) {
+	if (n < 0) {
+        throw 'Unable to compute factorial for n < 0'
+    }
+
+    if (!(typeof n === "number") || Math.floor(n) !== n) {
+        throw 'Unable to compute factorial of non integer values'
+    }
+
+    if (n >= 100) {
+        throw 'Unable to compute factorial for n > 100'
+    }
+
+    if (0 === n) {
+        return 1;
+    }
+
+    return n * Util.factorial(n - 1);
 };
 
 /**
@@ -17,6 +34,15 @@ Util.factorial = function(n) {
  */
 Util.arrangement = function(n, r) {
 
+	if( typeof r !== "number" ){
+        throw 'Unable to compute arrangement of non integer values (r)'
+    }
+
+    if( r > n ){
+        throw 'Unable to compute arrangement for r > n';
+    }
+
+    return Util.factorial( n ) / Util.factorial( n - r );
 };
 
 /**
