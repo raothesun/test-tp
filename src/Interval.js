@@ -95,29 +95,23 @@ Interval.prototype.intersection = function (interval) {
  */
 Interval.prototype.exclusion = function (interval) {
 		
-		var start;
-		var end;
+		if(interval.includes(this)){
+			return null
+		}
 
 		if(!this.overlaps(interval)){
-			
+			return this;
+		}
+		
+		if(this.includes(interval)){
+			return [new Interval(this.start,interval.start), new Interval(interval.end,this.end)];
 		}
 
 		if(this.start > interval.start){
-			start = this.start;
+			return new Interval(interval.end, this.end);
 		}
 		else{
-			start = interval.start;
+			return new Interval(this.start, interval.start);
 		}
 
-		if(this.end < interval.end){
-			end = this.end;
-		}
-		else{
-			end = interval.end;
-		}
-
-		return new Interval(start, end);
 };
-
-
-

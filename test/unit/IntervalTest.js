@@ -116,26 +116,33 @@ describe("Interval - Intersection", function(){
 describe("Interval - Exclusion", function(){
 
     var testedInterval = new Interval(10,20);
+    var bigInterval = new Interval(5, 50);
+    var notOverlappingInterval = new Interval(30, 40);
+    var includedInterval = new Interval(14,15);
 
-    it("should raise an exception when intervals don't ovelap",function(){
-        var f = function(){
-            testedInterval.exclusion(new Interval(30,40));
-        }
-        expect(f).toThrow('The two intervals do not overlap and therefore cannot be exclusionned');
+    it("Should return null when "+testedInterval.toString()+" excludes "+bigInterval.toString(),function(){
+        var result = testedInterval.exclusion(bigInterval)
+        expect(result).toBeNull();
+    });
+
+    it("Should return "+testedInterval.toString()+" when "+testedInterval.toString()+" excludes "+notOverlappingInterval.toString(),function(){
+        var result = testedInterval.exclusion(notOverlappingInterval)
+        expect(result).toEqual(testedInterval);
+    });
+
+    it("Should return two intervals when "+testedInterval.toString()+" excludes "+includedInterval.toString(),function(){
+        var result = testedInterval.exclusion(includedInterval)
+        expect(result).toEqual([new Interval(10,14), new Interval(15,20)]);
     });
     
     var testCases = [
         {
             interv : new Interval(15,30),
+            res : new Interval(10,15)
+        },
+        {
+            interv : new Interval(5,15),
             res : new Interval(15,20)
-        },
-        {
-            interv : new Interval(5,20),
-            res : new Interval(10,20)
-        },
-        {
-            interv : new Interval(12,13),
-            res : new Interval(12,13)
         }
     ];
 
