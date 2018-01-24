@@ -53,7 +53,7 @@ Util.arrangement = function(n, r) {
  * @returns {number}
  */
 Util.combination = function(n, r) {
-
+	return Util.arrangement(n,r) / Util.factorial(r) ;
 };
 
 /**
