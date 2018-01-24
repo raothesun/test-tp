@@ -99,7 +99,7 @@ Interval.prototype.exclusion = function (interval) {
 		var end;
 
 		if(!this.overlaps(interval)){
-			throw 'The two intervals do not overlap and therefore cannot be exclusionned'
+			
 		}
 
 		if(this.start > interval.start){

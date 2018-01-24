@@ -54,6 +54,11 @@ describe("Interval - Union", function(){
 
     var testedInterval = new Interval(10,20);
     
+    it("Should return [10,20] and [30,40] when [10,20] unions [30,40]", function(){
+        var result = testedInterval.union(new Interval(30,40))
+        expect(result).toEqual([new Interval(10,20), new Interval(30,40)])
+    });
+
     var testCasesOverlapping = [
         {
             interv : new Interval(15,30),
