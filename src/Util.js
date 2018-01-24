@@ -66,13 +66,11 @@ Util.combination = function(n, r) {
  */
 Util.isPrime = function(n) {
 
-	if( typeof n !== "number" )
-    {
+	if( typeof n !== "number" ){
         throw 'Unable to compute arrangement of non integer values (n)'
     }
 
-    if( n <= 0 )
-    {
+    if( n <= 0 ){
         throw 'Unable to compute factorial for n < 0'
     }
 
@@ -99,7 +97,20 @@ Util.isPrime = function(n) {
  * @returns {number}
  */
 Util.sumPrime = function(n) {
+	
+	var somme = 0;
 
+    if( typeof n !== "number" || Math.floor( n ) !== n ){
+        throw 'Unable to compute sumPrime of non integer values';
+    }
+
+    for(var i = n; i >= 2; i--){
+        if( Util.isPrime( i ) === true){
+            somme = somme + i;
+        }
+    }
+
+    return somme;
 };
 
 /**
